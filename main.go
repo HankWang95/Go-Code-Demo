@@ -6,5 +6,7 @@ func main()  {
 	//book.ReadFile1_4()
 	//demo.UitableDemo()
 	//book.Image()
-	book.Fetch1_5()
+	//book.Fetch1_6()
+	//book.WebHandler()
+	book.Echo4()
 }

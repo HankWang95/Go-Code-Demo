@@ -4,7 +4,6 @@ import (
 	"image"
 	"image/color"
 	"image/gif"
-	"io"
 	"log"
 	"math"
 	"math/rand"
@@ -16,7 +15,6 @@ import (
 var palette = []color.Color{color.White, color.Black}
 
 const (
-
 	blackIndex = 1
 )
 
@@ -24,18 +22,17 @@ func Image() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Args) > 1 && os.Args[1] == "web" {
 		handler := func(w http.ResponseWriter, r *http.Request) {
-			lissajous(w)
+			//lissajous(w)
 		}
 		http.HandleFunc("/", handler)
 		log.Fatal(http.ListenAndServe("localhost:8000", nil))
 		return
 	}
-	lissajous(os.Stdout)
+	//lissajous(os.Stdout)
 }
 
-func lissajous(out io.Writer) {
+func lissajous(out http.ResponseWriter, cycles float64) {
 	const (
-		cycles  = 5
 		res     = 0.001
 		size    = 500
 		nframes = 64
