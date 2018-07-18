@@ -14,6 +14,7 @@ var count  = 0
 func WebHandler()  {
 	http.HandleFunc("/count", counter)
 	http.HandleFunc("/gif", handlerLissajous)
+	http.HandleFunc("/svg", handlerSvg)
 	http.HandleFunc("/", handler)
 
 	log.Fatal(http.ListenAndServe("localhost:8999", nil))
@@ -49,4 +50,9 @@ func handlerLissajous(w http.ResponseWriter, r *http.Request)  {
 	r.ParseForm()
 	cycles, _ := strconv.ParseFloat(r.Form.Get("cycles"), 10)
 	lissajous(w,cycles)
+}
+
+func handlerSvg(w http.ResponseWriter, r *http.Request)  {
+	w.Header().Set("Content-type", "image/svg+xml")
+	Svg(w)
 }
