@@ -2,11 +2,11 @@ package book
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
 	"time"
-	"io"
 )
 
 func Fetch1_5() {
@@ -31,7 +31,6 @@ func Fetch1_5() {
 
 	}
 }
-
 
 // 引入chan概念，并发执行
 func Fetch1_6() {
@@ -59,14 +58,10 @@ func fetchGo(url string, ch chan<- string) {
 	nbytes, err := io.Copy(ioutil.Discard, resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		ch<- fmt.Sprintf("while reading %s: %v", url, err)
+		ch <- fmt.Sprintf("while reading %s: %v", url, err)
 		return
 	}
 	secs := time.Since(start).Seconds()
-	ch <- fmt.Sprintf("%.2fs %7d %s",secs,nbytes,url)
-
+	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 
 }
-
-
-

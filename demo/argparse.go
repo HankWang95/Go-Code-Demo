@@ -1,14 +1,14 @@
 package demo
 
 import (
-	"github.com/akamensky/argparse"
-	"os"
 	"fmt"
+	"github.com/akamensky/argparse"
 	"github.com/akamensky/argparse/examples/commands-advanced/zoo"
 	"log"
+	"os"
 )
 
-func ArgparseDemo()  {
+func ArgparseDemo() {
 	// Create new parser object
 	parser := argparse.NewParser("print", "Prints provided string to stdout")
 	// Create string flag
@@ -23,7 +23,6 @@ func ArgparseDemo()  {
 	// Finally print the collected string
 	fmt.Println(*s)
 }
-
 
 func ArgparseDemo2() {
 	// Create new parser object

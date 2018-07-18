@@ -38,4 +38,3 @@ func UitableDemo() {
 	}
 	fmt.Println(table)
 }
-
