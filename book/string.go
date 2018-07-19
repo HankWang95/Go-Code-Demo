@@ -1,9 +1,9 @@
 package book
 
 import (
-	"strings"
 	"bytes"
 	"fmt"
+	"strings"
 )
 
 func Basename(s string) string {
@@ -28,10 +28,10 @@ func BufComma(s string) string {
 	var buf bytes.Buffer
 	n := len(s)
 	fmt.Println(s[1])
-	for i:=0 ; i<n; i++{
+	for i := 0; i < n; i++ {
 		fmt.Println(i)
 		buf.WriteByte(s[i])
-		if n!=i+1 && (n-i-1)%3 == 0{
+		if n != i+1 && (n-i-1)%3 == 0 {
 			buf.WriteByte(',')
 		}
 	}
