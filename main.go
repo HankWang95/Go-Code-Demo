@@ -3,7 +3,7 @@ package main
 import "github.com/HankWang95/test-demo/book"
 
 func main() {
-	//book.ReadFile1_4()
+	book.ReadFile1_3()
 	//demo.UitableDemo()
 	//book.Image()
 	//book.Fetch1_6()
@@ -16,5 +16,6 @@ func main() {
 	//x := []int{1, 2, 3, 4}
 	//y := book.AppendSlice(x, 3, 4, 4, 3, 3, 4)
 	//fmt.Println(y)
-	book.Dedup()
+	//book.Dedup()
+	//book.WordFrequency()
 }

@@ -34,8 +34,9 @@ func ReadFile1_3() {
 
 func countLines(f *os.File, counts map[string]int) {
 	input := bufio.NewScanner(f)
+	input.Split(bufio.ScanWords)
 	for input.Scan() {
-		counts[input.Text()] = 1
+		counts[input.Text()]++
 	}
 }
 

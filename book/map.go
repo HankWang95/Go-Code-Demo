@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"os"
 	"fmt"
+	"io/ioutil"
+	"strings"
 )
 
 
@@ -21,5 +23,27 @@ func Dedup() {
 	if err := input.Err();err !=nil{
 		fmt.Fprintf(os.Stderr, "dedup: %v\n",err)
 		os.Exit(1)
+	}
+}
+
+func WordFrequency()  {
+	var count = make(map[string]int)
+
+	for _,i:=range os.Args[1:]{
+		data,err := ioutil.ReadFile(i)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Word Frequency:%s",err)
+			continue
+		}
+		for _,line := range strings.Split(string(data),"\n"){
+			wordList := strings.Split(line, " ")
+			for _,word:= range wordList{
+				count[word]++
+			}
+
+		}
+	}
+	for k,v:=range count{
+		fmt.Printf("word:%s count:%d\n",k,v)
 	}
 }
