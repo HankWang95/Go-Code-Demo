@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"strings"
+	"io"
 )
 
 // 读取文件的信息，并计数
@@ -66,4 +67,20 @@ func ReadFile1_4() {
 		counts = make(map[string]int)
 	}
 
+}
+
+func ReadFileFail() error {
+	var r rune
+	in := bufio.NewReader(os.Stdin)
+	for {
+		r, _,err := in.ReadRune()
+		if err == io.EOF{
+			break
+		}
+		if err !=nil{
+			return fmt.Errorf("read failed: %v", err)
+		}
+	}
+	fmt.Println(r)
+	return nil
 }

@@ -16,8 +16,6 @@ func TreeSort(values []int) {
 	fmt.Println(values)
 }
 
-
-
 func appendValues(values []int, t *tree) []int {
 	if t != nil {
 		values = appendValues(values, t.left)

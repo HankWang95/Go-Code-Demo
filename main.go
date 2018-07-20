@@ -1,6 +1,10 @@
 package main
 
-import "github.com/HankWang95/test-demo/book"
+import (
+	"fmt"
+	"github.com/HankWang95/test-demo/book"
+	"os"
+)
 
 func main() {
 	//book.ReadFile1_3()
@@ -20,5 +24,24 @@ func main() {
 	//book.WordFrequency()
 	//values := []int{1,2,2,3,23,2,12,3,1,2}
 	//book.TreeSort(values)
-	book.DoSearchIssue()
+	//book.DoSearchIssue()
+	Spider()
+}
+
+func Spider() {
+	url := book.LoadUrl()
+	fmt.Printf("Loading %s ...\n", url)
+	resp, err := book.WaitForServer(url)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "loading url fail! %s", err)
+	}
+
+	body, err := book.BodyToByte(resp)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "err :%v ", err)
+	}
+	fmt.Println("---------Scan Inner URL-----------")
+	book.ScanInnerURL(body)
+	fmt.Println("---------Scan the HTML tree struct---------")
+	book.HTMLTree(body)
 }
