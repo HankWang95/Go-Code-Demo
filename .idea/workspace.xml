@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dab750a-3d12-49b2-9b78-34f60a172d6d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/book/json.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book/struct.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/map.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/map.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book/read&amp;scan.go" beforeDir="false" afterPath="$PROJECT_DIR$/book/read&amp;scan.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test" beforeDir="false" afterPath="$PROJECT_DIR$/test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test2" beforeDir="false" afterPath="$PROJECT_DIR$/test2" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,17 +19,47 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+            <state relative-caret-position="396">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="map.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book/map.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="411">
+              <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="struct.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/book/struct.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="json.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/book/json.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+              <folding>
+                <element signature="e#14#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="url.go" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/Cellar/go/1.10/libexec/src/net/url/url.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="267" column="22" lean-forward="true" selection-start-line="267" selection-start-column="22" selection-end-line="267" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -39,7 +67,7 @@
       <file leaf-file-name="read&amp;scan.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/book/read&amp;scan.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-181">
+            <state relative-caret-position="-173">
               <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
             </state>
           </provider>
@@ -103,8 +131,10 @@
         <option value="$PROJECT_DIR$/book/slice.go" />
         <option value="$PROJECT_DIR$/book/string.go" />
         <option value="$PROJECT_DIR$/book/map.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/book/read&amp;scan.go" />
+        <option value="$PROJECT_DIR$/book/struct.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/book/json.go" />
       </list>
     </option>
   </component>
@@ -118,8 +148,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-158" />
+    <option name="y" value="253" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -275,15 +307,15 @@
       <workItem from="1531475161539" duration="22661000" />
       <workItem from="1531719894845" duration="8735000" />
       <workItem from="1531806263907" duration="23653000" />
-      <workItem from="1531980391456" duration="2292000" />
+      <workItem from="1531980391456" duration="16447000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67193000" />
+    <option name="totallyTimeSpent" value="81348000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="807" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -296,7 +328,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32641292" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2972259" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2183406" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17668097" />
@@ -330,27 +362,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/book/web_handler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="51" column="1" lean-forward="true" selection-start-line="51" selection-start-column="1" selection-end-line="51" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/book/echo.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/book/read&amp;scan.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
@@ -656,16 +667,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/book/map.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state relative-caret-position="411">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/book/read&amp;scan.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-181">
+        <state relative-caret-position="-173">
           <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
         </state>
       </provider>
@@ -680,10 +691,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/book/map.go">
+    <entry file="file:///usr/local/Cellar/go/1.10/libexec/src/net/url/url.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="54">
+          <caret line="267" column="22" lean-forward="true" selection-start-line="267" selection-start-column="22" selection-end-line="267" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book/json.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#14#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/book/struct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="37" column="12" lean-forward="true" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
         </state>
       </provider>
     </entry>

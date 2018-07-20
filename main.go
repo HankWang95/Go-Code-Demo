@@ -3,7 +3,7 @@ package main
 import "github.com/HankWang95/test-demo/book"
 
 func main() {
-	book.ReadFile1_3()
+	//book.ReadFile1_3()
 	//demo.UitableDemo()
 	//book.Image()
 	//book.Fetch1_6()
@@ -18,4 +18,7 @@ func main() {
 	//fmt.Println(y)
 	//book.Dedup()
 	//book.WordFrequency()
+	//values := []int{1,2,2,3,23,2,12,3,1,2}
+	//book.TreeSort(values)
+	book.DoSearchIssue()
 }
