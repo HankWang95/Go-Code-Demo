@@ -46,5 +46,3 @@ func WordFrequency() {
 		fmt.Printf("word:%s count:%d\n", k, v)
 	}
 }
-
-

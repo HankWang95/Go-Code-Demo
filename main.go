@@ -25,7 +25,9 @@ func main() {
 	//values := []int{1,2,2,3,23,2,12,3,1,2}
 	//book.TreeSort(values)
 	//book.DoSearchIssue()
-	Spider()
+	//Spider()
+
+	book.DoTopology()
 }
 
 func Spider() {
