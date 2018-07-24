@@ -1,9 +1,10 @@
-package book
+package spider
 
 import (
 	"bytes"
 	"fmt"
 	"golang.org/x/net/html"
+	"net/http"
 	"os"
 )
 
@@ -36,7 +37,7 @@ import (
 
 var htmlCount = map[string]int{}
 
-func ScanInnerURL(b []byte) {
+func ScanInnerURL(b []byte) *html.Node {
 	r := bytes.NewReader(b)
 	//dec := base64.NewDecoder(base64.StdEncoding, buf)
 	doc, err := html.Parse(r)
@@ -47,6 +48,7 @@ func ScanInnerURL(b []byte) {
 	for _, link := range visit(nil, doc) {
 		fmt.Fprintf(os.Stdout, "findlinks1: %v\n", link)
 	}
+	return doc
 }
 
 // 函数会将n节点中的每一个链接添加到列表中
@@ -64,57 +66,59 @@ func visit(links []string, n *html.Node) []string {
 	return links
 }
 
-func HTMLTree(b []byte) {
-	r := bytes.NewReader(b)
-	doc, err := html.Parse(r)
+//func HTMLTree(resp *http.Response) {
+//	doc, err := html.Parse(resp.Body)
+//	if err != nil {
+//		fmt.Fprintf(os.Stderr, "HTMLTree: %v\n", err)
+//		os.Exit(1)
+//	}
+//
+//}
+
+func Outline(url string) error {
+	var f1, f2 func(node *html.Node)
+	var depth int
+	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "HTMLTree: %v\n", err)
-		os.Exit(1)
+		return err
 	}
-	forEachNode(doc, startElement, endElement)
-	fmt.Println("----------HTML Node Count----------")
-	for k, v := range htmlCount {
-		fmt.Printf("%s: \t %d\n", k, v)
+	defer resp.Body.Close()
+
+	doc, err := html.Parse(resp.Body)
+
+	if err != nil {
+		return err
 	}
+	f1 = func(n *html.Node) {
+		if n.Type == html.ElementNode {
+			fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+			depth++
+		}
+	}
+	f2 = func(n *html.Node) {
+		if n.Type == html.ElementNode {
+			depth--
+			fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+		}
+	}
+
+	//!+call
+	forEachNode(doc, f1, f2)
+	//!-call
+
+	return nil
 }
 
-func outline(stack []string, n *html.Node) {
-	if n.Type == html.ElementNode {
-		stack = append(stack, n.Data)
-		htmlCount[n.Data]++
-		fmt.Println(stack)
-	}
-	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		outline(stack, c)
-	}
-}
-
-func forEachNode(n *html.Node, pre, post func(n *html.Node)) {
-	if pre != nil {
-		pre(n)
-	}
-
-	for c := n.FirstChild; c != nil; c = c.NextSibling {
-		forEachNode(c, pre, post)
-	}
-
-	if post != nil {
-		post(n)
-	}
-}
-
-var depth int
-
-func startElement(n *html.Node) {
-	if n.Type == html.ElementNode {
-		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
-		depth++
-	}
-}
-
-func endElement(n *html.Node) {
-	if n.Type == html.ElementNode {
-		depth--
-		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
-	}
-}
+//func startElement(n *html.Node) {
+//	if n.Type == html.ElementNode {
+//		fmt.Printf("%*s<%s>\n", depth*2, "", n.Data)
+//		depth++
+//	}
+//}
+//
+//func endElement(n *html.Node) {
+//	if n.Type == html.ElementNode {
+//		depth--
+//		fmt.Printf("%*s</%s>\n", depth*2, "", n.Data)
+//	}
+//}

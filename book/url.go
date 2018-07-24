@@ -15,20 +15,7 @@ func LoadUrl() string {
 	if url[:7] != "http://" {
 		url = "http://" + url
 	}
-	//resp, err := http.Get(url)
-	//if err != nil {
-	//	fmt.Fprintf(os.Stderr, "fetch: %v \n", err)
-	//}
-	//b, err := ioutil.ReadAll(resp.Body)
-	//if err != nil {
-	//	fmt.Fprintf(os.Stderr, "fetch: %v \n", err)
-	//}
-	//defer resp.Body.Close()
-	//if err != nil {
-	//	fmt.Fprintf(os.Stderr, "fetch: reading %s:%v \n", url, err)
-	//	os.Exit(1)
-	//}
-	//fmt.Printf("%s", b)
+
 	return url
 }
 
