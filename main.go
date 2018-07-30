@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/HankWang95/test-demo/book"
-)
+import "github.com/HankWang95/test-demo/goroutine"
 
 func main() {
 	//book.ReadFile1_3()
@@ -51,7 +49,27 @@ func main() {
 
 	//book.BigSlowOperation()
 
-	book.PanicTest()
+	//book.PanicTest()
+
+	//goroutine.Deposit(2222)
+	//goroutine.Withdraw(1231)
+	//goroutine.Withdraw(1231)
+	//goroutine.Withdraw(1231)
+	//flag := goroutine.Withdraw(1231)
+	//fmt.Println(flag)
+	//goroutine.Withdraw(1231)
+	//b := goroutine.Balance()
+	//fmt.Println(b)
+	//fmt.Print(b)
+	//goroutine.DoMemo()
+	//goroutine.DoMsg()
+	//goroutine.Dofib()
+	//goroutine.DoClock()
+	//goroutine.EchoConn()
+	//goroutine.DoNetcat()
+
+	goroutine.PipeLine()
+
 }
 
 //
@@ -71,4 +89,23 @@ func main() {
 //	//book.ScanInnerURL(body)
 //	fmt.Println("---------Scan the HTML tree struct---------")
 //	spider.HTMLTree(resp)
+//}
+//
+//func chanTest() {
+//	type entry struct {
+//		res int
+//		ready chan struct{}
+//	}
+//
+//	e := &entry{ready:make(chan struct{})}
+//	go func() {
+//		time.Sleep(5*time.Second)
+//		close(e.ready)
+//	}()
+//	w:=<-e.ready
+//	for{
+//		go fmt.Println(w)
+//	}
+//
+//
 //}

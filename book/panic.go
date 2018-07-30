@@ -44,8 +44,8 @@ func SoleTitle(doc *html.Node) (title string, err error) {
 // 5.19 使用Panic 和 recover 写一个没有return 却能返回一个非零的值的函数
 
 func PanicTest() {
-	panic("非零值哦")
 	defer func() {
 		recover()
 	}()
+	panic("非零值哦")
 }
