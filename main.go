@@ -65,10 +65,10 @@ func main() {
 	//goroutine.DoMsg()
 	//goroutine.Dofib()
 	//goroutine.DoClock()
-	//goroutine.EchoConn()
+	goroutine.EchoConn()
 	//goroutine.DoNetcat()
 
-	goroutine.PipeLine()
+	//goroutine.PipeLine()
 
 }
 

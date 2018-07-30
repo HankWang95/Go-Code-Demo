@@ -6,6 +6,7 @@ import (
 	"net"
 	"strings"
 	"time"
+	"sync"
 )
 
 func echo(c net.Conn, shout string, delay time.Duration) {
@@ -16,19 +17,36 @@ func echo(c net.Conn, shout string, delay time.Duration) {
 	fmt.Fprintln(c, "\t", strings.ToLower(shout))
 }
 
-func HandelConn(c net.Conn) {
+func HandelConn(c *net.TCPConn) {
 	input := bufio.NewScanner(c)
+	var wg sync.WaitGroup
+	var abort = make(chan string)
+
+
+	go func() {
+		defer wg.Add(1)
+		for {
+			select {
+			case <-time.Tick(10 * time.Second):
+				c.CloseWrite()
+			case text:=<-abort:
+				go echo(c, text, 1*time.Second)
+			}
+		}
+	}()
 	for input.Scan() {
-		echo(c, input.Text(), 1*time.Second)
+		abort<-input.Text()
 	}
-	c.Close()
+
 }
 
 func EchoConn() {
-	listener, _ := net.Listen("tcp", "localhost:8000")
+	tcpAddr, _ := net.ResolveTCPAddr("tcp", "localhost:8000")
+	listener, _ := net.ListenTCP("tcp", tcpAddr)
 	for {
-		conn, _ := listener.Accept()
+		conn, _ := listener.AcceptTCP()
 
 		go HandelConn(conn)
+
 	}
 }
