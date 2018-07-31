@@ -54,7 +54,7 @@ func DoWalkDir() {
 	// 并行遍历文件树
 
 	for _, root := range roots {
-		fmt.Println(root,"-----------------")
+		fmt.Println(root, "-----------------")
 		var fileSize = make(chan int64)
 		var n sync.WaitGroup
 		n.Add(1)
@@ -84,13 +84,11 @@ func DoWalkDir() {
 			printDiskUsage(root, nfiles, nbyte)
 
 		}(root)
-
-
 	}
 }
 func printDiskUsage(root string, nfiles, nbyte int64) {
-	_, err:= fmt.Printf("root:%s, %d files \t %.1f GB\n", root, nfiles, float64(nbyte)/1e9)
-	if err != nil{
+	_, err := fmt.Printf("root:%s, %d files \t %.1f GB\n", root, nfiles, float64(nbyte)/1e9)
+	if err != nil {
 		log.Fatal(err)
 	}
 }

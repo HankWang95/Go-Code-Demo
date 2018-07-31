@@ -18,12 +18,12 @@ func DoClock() {
 			log.Print(err)
 			continue
 		}
-		go handleConn(conn)
+		go _handleConn(conn)
 
 	}
 }
 
-func handleConn(c net.Conn) {
+func _handleConn(c net.Conn) {
 	defer c.Close()
 	for i := 1; i < 5; i++ {
 		_, err := io.WriteString(c, time.Now().Format("15:04:05\n"))

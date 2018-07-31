@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net"
 	"strings"
-	"time"
 	"sync"
+	"time"
 )
 
 func echo(c net.Conn, shout string, delay time.Duration) {
@@ -22,20 +22,19 @@ func HandelConn(c *net.TCPConn) {
 	var wg sync.WaitGroup
 	var abort = make(chan string)
 
-
 	go func() {
 		defer wg.Add(1)
 		for {
 			select {
 			case <-time.Tick(10 * time.Second):
 				c.CloseWrite()
-			case text:=<-abort:
+			case text := <-abort:
 				go echo(c, text, 1*time.Second)
 			}
 		}
 	}()
 	for input.Scan() {
-		abort<-input.Text()
+		abort <- input.Text()
 	}
 
 }

@@ -70,8 +70,8 @@ func main() {
 
 	//goroutine.PipeLine()
 
-	goroutine.DoWalkDir()
-
+	//goroutine.DoWalkDir()
+	goroutine.DoChat()
 }
 
 //
