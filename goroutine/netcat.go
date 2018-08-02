@@ -2,6 +2,7 @@ package goroutine
 
 import (
 	"fmt"
+	"github.com/HankWang95/pool4go"
 	"io"
 	"log"
 	"net"
@@ -11,7 +12,12 @@ import (
 func DoNetcat() {
 	//ltcpaddr, err := net.ResolveTCPAddr("tcp", "localhost:8000")
 	atcpaddr, err := net.ResolveTCPAddr("tcp", "localhost:8000")
-	conn, err := net.DialTCP("tcp", nil, atcpaddr)
+	pool, err := pool4go.NewGPool(10, 30, func() (net.Conn, error) {
+		return net.DialTCP("tcp", nil, atcpaddr)
+	})
+
+	//conn, err := net.DialTCP("tcp", nil, atcpaddr)
+	conn, err := pool.Get()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,7 +28,7 @@ func DoNetcat() {
 		done <- struct{}{} // 指示主 goroutine
 	}()
 	mustCopy(conn, os.Stdin)
-	conn.CloseWrite()
+	conn.Close()
 	<-done
 	fmt.Println("ok")
 }

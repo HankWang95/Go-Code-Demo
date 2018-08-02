@@ -1,6 +1,8 @@
 package main
 
-import "github.com/HankWang95/test-demo/goroutine"
+import (
+	"github.com/HankWang95/test-demo/pool"
+)
 
 func main() {
 	//book.ReadFile1_3()
@@ -71,7 +73,9 @@ func main() {
 	//goroutine.PipeLine()
 
 	//goroutine.DoWalkDir()
-	goroutine.DoChat()
+	//goroutine.DoChat()
+	//goroutine.Demo4pool()
+	pool.Demo4pool()
 }
 
 //

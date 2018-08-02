@@ -56,7 +56,11 @@ func handleConn(conn net.Conn) {
 	ch := make(chan string)
 	go clientWriter(conn, ch)
 
-	who := conn.RemoteAddr().String()
+	//addr := conn.RemoteAddr().String()
+	var who string
+
+	who = "hi"
+
 	ch <- "You are " + who
 	messages <- who + " has arrived"
 	entering <- ch
@@ -69,7 +73,6 @@ func handleConn(conn net.Conn) {
 	leaving <- ch
 	messages <- who + " has left"
 	conn.Close()
-
 }
 
 func clientWriter(conn net.Conn, ch <-chan string) {
