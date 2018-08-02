@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/HankWang95/test-demo/pool"
-)
+import "github.com/HankWang95/test-demo/pool"
 
 func main() {
 	//book.ReadFile1_3()

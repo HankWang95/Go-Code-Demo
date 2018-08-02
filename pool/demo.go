@@ -6,13 +6,14 @@ import (
 	"log"
 	"net"
 	"sync"
+	"os"
 	"time"
 )
 
 func init() {
 	// used for factory function
-	go simpleTCPServer()
-	time.Sleep(time.Millisecond * 300) // wait until tcp server has been settled
+	//go simpleTCPServer()
+	//time.Sleep(time.Millisecond * 300) // wait until tcp server has been settled
 
 }
 
@@ -29,32 +30,45 @@ func simpleTCPServer() {
 			log.Fatal(err)
 		}
 
-		go func() {
-			buffer := make([]byte, 256)
-			conn.Read(buffer)
-		}()
+
+		//go func() {
+		//	buffer := make([]byte, 256)
+		//	conn.Read(buffer)
+		//}()
+		fmt.Fprint(os.Stdout, conn)
 	}
 }
 
 func Demo4pool() {
-	atcpaddr, _ := net.ResolveTCPAddr("tcp", "localhost:8000")
+
 	p, _ := pool4go.NewGPool(10, 30, func() (net.Conn, error) {
-		return net.DialTCP("tcp", nil, atcpaddr)
+		return net.Dial("tcp", "localhost:8000")
 	})
 	defer p.Close()
 
 	var wg sync.WaitGroup
-	conns := make([]net.Conn, 33)
-	for i := 0; i < 33; i++ {
-		wg.Add(1)
-		if i == 9 {
+	conns := make([]net.Conn, 31)
+	for i := 0; i < 31; i++ {
+		if i == 30{
+			time.Sleep(2*time.Second)
+			conn := conns[29]
+			conn.Close()
+		}
+
+		if i == 8 {
 			fmt.Println("--------测试连接池等待剩余----------")
-			time.Sleep(1 * time.Second)
+			wg.Wait()
 			fmt.Printf("In pool conner amount: %d\n", p.Len())
 		}
+		wg.Add(1)
 		go func(i int) {
 			defer wg.Done()
 			conn, err := p.Get()
+			if err != nil{
+				fmt.Println(err)
+			}
+			//msg := "hello"
+			//fmt.Fprint(conn, msg)
 			conns[i] = conn
 			if err != nil {
 				fmt.Errorf("Get error. ")
@@ -76,7 +90,6 @@ func Demo4pool() {
 			continue
 
 		}
-		fmt.Println(p.Len())
 		conn.Close()
 	}
 
